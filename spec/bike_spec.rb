@@ -1,7 +1,6 @@
-require_relative '../lib/bike.rb'
+require 'bike.rb'
 describe Bike do 
     it "responds to working method" do
-        bike = Bike.new
-       expect(bike.working?).to eq "Yes" 
+        expect(Bike.new).to be_working
     end
 end 

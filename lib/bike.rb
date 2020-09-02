@@ -1,15 +1,16 @@
 require 'docking_station.rb'
 
 class Bike
-    def working?
-        puts "Yes"
-    end
-
     def initialize
+        @bike = []
+    end 
+
+    def working?
+       true
     end
 
 end
 
 
 
-bike = docking_station.release_bike
+#bike = docking_station.release_bike
