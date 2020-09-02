@@ -1,4 +1,4 @@
-require 'bike.rb'
+require_relative '../lib/bike.rb'
 describe Bike do 
     it "responds to working method" do
         bike = Bike.new
