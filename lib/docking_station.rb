@@ -3,8 +3,9 @@ class DockingStation
 
   attr_reader :docked_bikes
 
-  def initialize
-      @docked_bikes = []
+  def initialize (capacity = 1)
+    @capacity = capacity 
+    @docked_bikes = []
   end
 
   def release_bike
@@ -13,6 +14,7 @@ class DockingStation
   end
 
   def dock(bike)
+    raise RuntimeError.new "Docking station is at capacity" if @docked_bikes.length == @capacity
     @docked_bikes << bike
     return "Bike is docked"
   end

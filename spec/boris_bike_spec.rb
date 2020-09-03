@@ -20,7 +20,14 @@ describe DockingStation do
     it "docks a bike" do
         docking_station = DockingStation.new
         bike = Bike.new
-        expect(docking_station.dock(bike)).to eq("Bike is docked")
+        expect(docking_station.dock(bike)).to eq("Bike is docked") 
+    end 
+
+    it "raises an error because DockingStation is at capacity" do
+        docking_station = DockingStation.new
+        bike = Bike.new
+        docking_station.dock(Bike.new)
+        expect { docking_station.dock(bike) }.to raise_error("Docking station is at capacity")
     end 
 
     it "shows the docked bike" do
@@ -29,4 +36,6 @@ describe DockingStation do
         docking_station.dock(bike)
         expect(docking_station.show).to eq(docking_station.docked_bikes)
     end 
+
+
 end
