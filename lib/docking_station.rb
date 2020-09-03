@@ -4,8 +4,17 @@ class DockingStation
     end 
     
     def release_bike
-    self
+        self
     end
+
+    def dock(bike)
+        @bike =  bike
+        return "Bike is docked"
+    end 
+
+    def show 
+        @bike
+    end 
 
 end 
 
