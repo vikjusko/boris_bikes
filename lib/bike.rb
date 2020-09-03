@@ -2,8 +2,7 @@ require 'docking_station.rb'
 
 class Bike
     def initialize
-        @bike = []
-    end 
+    end
 
     def working?
        true

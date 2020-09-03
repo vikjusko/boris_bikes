@@ -1,9 +1,15 @@
 require 'docking_station'
 require 'bike.rb'
+
 describe DockingStation do
     it "Testing release_bike" do
         docking_station = DockingStation.new
         expect(docking_station).to respond_to(:release_bike)
+    end
+
+    it "raises an error when releasing bike with empty docking station" do
+      docking_station = DockingStation.new
+      expect { docking_station.release_bike }.to raise_error('Docking station is empty')
     end
     
     it "Gets a bike" do
