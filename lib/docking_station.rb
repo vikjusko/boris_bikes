@@ -3,14 +3,14 @@ class DockingStation
 
   attr_reader :docked_bikes
 
-  def initialize (capacity = 1)
+  def initialize (capacity = 20)
     @capacity = capacity 
     @docked_bikes = []
   end
 
   def release_bike
     raise RuntimeError.new "Docking station is empty" if @docked_bikes.empty?
-    @docked_bikes
+    @docked_bikes.shift
   end
 
   def dock(bike)
