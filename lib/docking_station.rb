@@ -9,12 +9,12 @@ class DockingStation
   end
 
   def release_bike
-    raise RuntimeError.new "Docking station is empty" if @docked_bikes.empty?
+    raise  "Docking station is empty" if @docked_bikes.empty?
     @docked_bikes.shift
   end
 
   def dock(bike)
-    raise RuntimeError.new "Docking station is at capacity" if @docked_bikes.length == @capacity
+    raise "Docking station is at capacity" if full?(@docked_bikes)
     @docked_bikes << bike
     return "Bike is docked"
   end
@@ -23,4 +23,9 @@ class DockingStation
     @docked_bikes
   end
 
+  private
+
+  def full?(bikes)
+    bikes.length == @capacity
+  end 
 end
