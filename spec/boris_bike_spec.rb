@@ -25,14 +25,21 @@ describe DockingStation do
 
     it "docks a bike without error when DockingStation is under capacity" do
       docking_station = DockingStation.new
-      (DockingStation::DEFAULT_CAPACITY - 1).times { docking_station.dock(Bike.new) }
+      (docking_station.capacity - 1).times { docking_station.dock(Bike.new) }
       expect(docking_station.dock(Bike.new)).to eq("Bike is docked")
     end
 
-    it "raises an error when DockingStation is at capacity" do
+    it "raises an error when DockingStation is at default capacity" do
         docking_station = DockingStation.new
-        expect { (DockingStation::DEFAULT_CAPACITY + 1).times { docking_station.dock(Bike.new) } }.to raise_error("Docking station is at capacity")
+        expect { (docking_station.capacity + 1).times { docking_station.dock(Bike.new) } }.to raise_error("Docking station is at capacity")
     end 
+
+    it "raises an error when Docking station is at a given capacity" do 
+        docking_station = DockingStation.new(4)
+        expect { (docking_station.capacity + 1).times { docking_station.dock(Bike.new) } }.to raise_error("Docking station is at capacity")
+    end 
+
+
 
     it "shows the docked bike" do
         docking_station = DockingStation.new
