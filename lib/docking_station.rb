@@ -1,24 +1,23 @@
 require 'bike.rb'
 class DockingStation
-
+attr_reader :docked_bikes
   def initialize
-      @bike = nil
+      @docked_bikes = []
   end
 
   def release_bike
-      puts "Docking station is empty" if @bike == nil
-      # if @bike has bike then return it and remove it from @bike
-      # if @bike is empty then raise error
-      @bike
+    @docked_bikes
+    fail "No bikes available" unless @docked_bikes
+    @docked_bikes
   end
 
   def dock(bike)
-    @bike =  bike
-      return "Bike is docked"
+    @docked_bikes << bike
+    return "Bike is docked"
   end
 
   def show
-    @bike
+    @docked_bikes
   end
 
 end
@@ -26,3 +25,8 @@ end
 docking_station = DockingStation.new
 docking_station.release_bike
 
+#  begin 
+# raise ("Docking station is empty") if @docked_bikes.empty?
+# rescue StandardError => e
+#        puts "Docking station is empty"
+#     end 

@@ -9,7 +9,7 @@ describe DockingStation do
 
     it "raises an error when releasing bike with empty docking station" do
       docking_station = DockingStation.new
-      expect { docking_station.release_bike }.to raise_error('Docking station is empty')
+      expect { docking_station.release_bike }.to raise_error(RuntimeError)
     end
     
     it "Gets a bike" do
@@ -27,6 +27,6 @@ describe DockingStation do
         docking_station = DockingStation.new
         bike = Bike.new
         docking_station.dock(bike)
-        expect(docking_station.show).to eq(bike)
+        expect(docking_station.show).to eq(docking_station.docked_bikes)
     end 
 end
