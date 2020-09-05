@@ -1,6 +1,8 @@
 require 'docking_station.rb'
 
 class Bike
+    attr_reader :broken
+    
     def initialize
     end
 
@@ -8,8 +10,12 @@ class Bike
        true
     end
     
+    def report_broken
+        @broken = true
+    end 
+
     def broken?
-        true
+        @broken
     end 
 
 end

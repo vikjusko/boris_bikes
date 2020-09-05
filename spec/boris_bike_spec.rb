@@ -14,12 +14,16 @@ describe DockingStation do
 
     it "raises an error when trying to release a broken bike" do
         docking_station = DockingStation.new
+        bike = Bike.new 
         expect { docking_station.release_bike }.to raise_error("Cannot release bike")
     end 
     
-    it "Gets a bike" do
-        bike = Bike.new
-        expect(bike.working?).to eq true
+    let (:bike) { double :bike }
+    it "releases a working bike " do
+        allow(bike).to receive(:working?).and_return(true)
+        subject.dock(bike)
+        released_bike = subject.release_bike
+        expect(released_bike).to be_working
     end   
 
     it "docks a bike" do
