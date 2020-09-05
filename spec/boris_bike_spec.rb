@@ -9,8 +9,13 @@ describe DockingStation do
 
     it "raises an error when releasing bike with empty docking station" do
       docking_station = DockingStation.new
-      expect { docking_station.release_bike }.to raise_error("Docking station is empty")
+      expect { docking_station.release_bike }.to raise_error("Cannot release bike")
     end
+
+    it "raises an error when trying to release a broken bike" do
+        docking_station = DockingStation.new
+        expect { docking_station.release_bike }.to raise_error("Cannot release bike")
+    end 
     
     it "Gets a bike" do
         bike = Bike.new
