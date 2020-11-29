@@ -1,23 +1,26 @@
-require 'bike.rb'
+# frozen_string_literal: true
+
+require 'bike'
 
 class DockingStation
-
   attr_reader :docked_bikes, :capacity
 
-  def initialize (capacity = 20)
+  def initialize(capacity = 20)
     @capacity = capacity
     @docked_bikes = []
   end
 
   def release_bike
-    raise "Cannot release bike" if empty? || Bike.new.broken?
+    raise 'Cannot release bike' if empty? || Bike.new.broken?
+
     @docked_bikes.pop
   end
 
   def dock(bike)
-    raise "Docking station is at capacity" if full?
+    raise 'Docking station is at capacity' if full?
+
     @docked_bikes << bike
-    return "Bike is docked"
+    'Bike is docked'
   end
 
   def show

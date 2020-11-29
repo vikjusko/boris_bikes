@@ -1,25 +1,23 @@
-require 'docking_station.rb'
+# frozen_string_literal: true
+
+require 'docking_station'
 
 class Bike
-    attr_reader :broken
-    
-    def initialize
-    end
+  attr_reader :broken
 
-    def working?
-       true
-    end
-    
-    def report_broken
-        @broken = true
-    end 
+  def initialize; end
 
-    def broken?
-        @broken
-    end 
+  def working?
+    true
+  end
 
+  def report_broken
+    @broken = true
+  end
+
+  def broken?
+    @broken
+  end
 end
 
-
-
-#bike = docking_station.release_bike
+# bike = docking_station.release_bike
